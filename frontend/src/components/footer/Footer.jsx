@@ -1,4 +1,4 @@
-import tmdbLogo from '../../assets/tmdb-logo.svg';
+import tmdbLogo from '../../assets/tmdb-logo2.svg';
 import styles from './Footer.module.scss';
 import { useLocation } from 'react-router-dom';
 
@@ -11,10 +11,18 @@ function Footer() {
             id='footer'
             className={`${styles.tmdb} ${isAccountPath ? styles.account : ''}`}
         >
-            <p>
-                This product uses the TMDB API but is not endorsed or certified by TMDB
-            </p>
-            <img src={tmdbLogo} alt="" />
+            <div className={styles.logoWrapper}>
+                <div>
+                    <p>
+                        This a hobby project only, and in no way affiliated with Netflix
+                    </p>
+                    <p>
+                        This product uses the TMDB API but is not endorsed or certified by TMDB
+                    </p>
+                </div>
+                <img src={tmdbLogo} alt="" />
+            </div>
+
         </footer>
     );
 };
