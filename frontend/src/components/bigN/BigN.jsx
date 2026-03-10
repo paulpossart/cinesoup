@@ -1,4 +1,5 @@
-import netpixLogo from '../../assets/netpix-logo.svg';
+//import netpixLogo from '../../assets/netpix-logo.svg';
+import netpixLogo from '../../assets/ai-netpix-logo.png';
 import styles from './BigN.module.scss';
 
 function BigN() {
@@ -10,3 +11,5 @@ function BigN() {
 };
 
 export default BigN;
+
+

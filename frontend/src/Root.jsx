@@ -25,7 +25,7 @@ function Root() {
         const intro = setTimeout(() => {
             setSeenBigN(true);
             sessionStorage.setItem('bigN', 'seen');
-        }, 2000);
+        }, 1900);
 
         return () => {
             clearTimeout(intro);
