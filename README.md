@@ -2,6 +2,8 @@
 
 Netpix is a full-stack Netflix clone that uses the PERN stack. It allows users to interact with the TMDB API through a RESTful API with secure authentication.
 
+This is a hobby app, and not affiliated with Netflix in anyway.
+
 [Visit Site](https://netpix.netlify.app/)
 
 ## Tech Stack
