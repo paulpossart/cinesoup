@@ -6,7 +6,7 @@
 }
 
 .notFound {
-    background-image: url(../../assets/bg-lost-in-space.png);
+    background-image: url(../../assets/ai-404-bg.png);
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -17,7 +17,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.4);
         z-index: -1;
     }
 
@@ -75,24 +75,6 @@
 
             font: {
                 size: clamp(16px, 2vw, 28px);
-            }
-        }
-
-        & aside {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            margin: 12px 24px;
-
-            font: {
-                size: clamp(10px, 2vw, 16px);
-                weight: 300;
-            }
-
-            & span {
-                @extend %textShadow;
-                font-weight: 600;
-                ;
             }
         }
     }

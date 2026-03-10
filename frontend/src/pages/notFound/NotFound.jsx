@@ -21,7 +21,6 @@ function NotFound() {
                 <h2>Lost your way?</h2>
                 <p>Sorry, we can't find that page. You'll find loads to explore on the home page.</p>
                 <Link to='/' className={styles.whiteBtn} replace>Netpix Home</Link>
-                <aside>FROM <span>LOST IN SPACE</span></aside>
             </div>
         </main>
     )
