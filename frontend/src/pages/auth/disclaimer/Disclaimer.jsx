@@ -103,6 +103,7 @@ function Disclaimer({ onClick }) {
             >
 
                 <h2 style={headingStyle} id='modal-title'>GRPR DISCLAIMER</h2>
+                <p>This is a <span>hobby project</span> only, and <span>not affiliated</span> with Netflix.</p>
                 <p>This app is for users aged <span>13 and over</span>.</p>
                 <p>Your <span>username</span> should <span>not</span> include any <span>personal info</span>.</p>
                 <p>User data is stored <span>privately</span> and <span>only</span> used for the app.</p>
