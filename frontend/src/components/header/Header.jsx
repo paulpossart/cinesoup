@@ -33,7 +33,7 @@ function Header({ className }) {
                     onClick={clearInput}
                     className={`${styles.logo} ${isAccountPath ? styles.accLogo : ''}`}
                 >
-                    NETPIX
+                    CineSoup
                 </NavLink>
 
                 {

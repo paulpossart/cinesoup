@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://netpix.onrender.com/api/:splat"
+  to = "https://cinesoup.onrender.com/api/:splat"
   status = 200
   force = true
 

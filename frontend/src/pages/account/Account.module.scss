@@ -87,7 +87,9 @@
 }
 
 .activeLink {
-    border-bottom: solid 3px $netpixRed;
+    border-bottom: solid 3px black;
+    
+
     font-weight: 600;
 
     @media (min-height: 400px) and (min-width: 960px) {

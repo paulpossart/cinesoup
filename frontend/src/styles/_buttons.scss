@@ -1,6 +1,6 @@
 @use './global' as *;
 
-@mixin button($bgCol: $netpixRed, $bgColHover: $hoverRed, $col: white) {
+@mixin button($bgCol: $primaryCol, $bgColHover: $primaryHover, $col: black) {
     cursor: pointer;
     border: none;
     border-radius: 4px;
@@ -37,14 +37,14 @@
 
 // Auth Buttons ===================
 
-.redBtn {
+.primaryBtn {
     @include button;
 }
 
 // Account Buttons =====
 
 .blackBtn {
-    @include button(black, rgb(76, 76, 76));
+    @include button(black, rgb(76, 76, 76), white);
 }
 
 .transparentBtn {
@@ -63,7 +63,7 @@
 
 // Searchbar ====
 .clearSearchBtn {
-    @include button(transparent, rgba(255, 255, 255, 0.4));
+    @include button(transparent, rgba(255, 255, 255, 0.4), white);
 
     border-radius: 50%;
     padding: 1.2rem;
@@ -98,7 +98,7 @@
 
 // modals
 .iconBtn {
-    @include button(transparent, rgba(255, 255, 255, 0.4));
+    @include button(transparent, rgba(255, 255, 255, 0.4), white);
     border: solid 1px white;
     border-radius: 50%;
     padding: 4%;
@@ -113,5 +113,9 @@
 }
 
 .primeBtn {
-    @include button(rgb(0, 114, 249), rgb(1, 90, 199));
+    @include button(rgb(0, 114, 249), rgb(1, 90, 199), white);
+}
+
+.netflixBtn {
+    @include button(rgb(225, 15, 15), rgb(180, 15, 15), white);
 }

@@ -189,7 +189,7 @@ function InfoModal({ modalData, onClose }) {
 
                 <div className={styles.links}>
                     <a
-                        className={styles.redBtn}
+                        className={styles.netflixBtn}
                         href={`https://www.netflix.com/search?q=${encodeURIComponent(movie.title)}`}
                         target='_blank'
                         rel='noopener noreferrer'

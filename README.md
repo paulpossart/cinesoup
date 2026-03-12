@@ -1,10 +1,8 @@
-# Netpix
+# CineSoup
 
-Netpix is a full-stack Netflix clone that uses the PERN stack. It allows users to interact with the TMDB API through a RESTful API with secure authentication.
+CineSoup is a full-stack Netflix clone that uses the PERN stack. It allows users to interact with the TMDB API through a RESTful API with secure authentication.
 
-*This is a hobby app, and not affiliated with Netflix in anyway.*
-
-[Visit Site](https://netpix.netlify.app/)
+[Visit Site](https://cinesoup.netlify.app/)
 
 ## Tech Stack
 - **Frontend:** React, React Context API, React Router, SCSS
@@ -16,7 +14,7 @@ Netpix is a full-stack Netflix clone that uses the PERN stack. It allows users t
 - **Authentication:** Express Session with Passport
 
 ## Features
-- **TMDB:** Netpix connects to popular third-party API, The Movie Database, enabling users to search for favourite movies, and create their own watchlist. The homepage displays lists of popular, upcoming, and current movies. Video and logo endpoints are integrated for a satisfying user experience.
+- **TMDB:** CineSoup connects to popular third-party API, The Movie Database, enabling users to search for favourite movies, and create their own watchlist. The homepage displays lists of popular, upcoming, and current movies. Video and logo endpoints are integrated for a satisfying user experience.
 
 - **Security:** Users can change their username and password at any time, sign out of all devices, and delete their account. The backend uses bcrypt for password hashing, and rate-limiting on public routes protects against abuse.
 

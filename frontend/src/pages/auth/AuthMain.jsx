@@ -8,7 +8,7 @@ import Footer from '../../components/footer/Footer';
 function AuthMain() {
     const [view, setView] = useState('login');
     const [viewedDisclaimer, setViewedDisclaimer] = useState(() => {
-        return localStorage.getItem('netpix-disclaimer') === 'seen';
+        return localStorage.getItem('cinesoup-disclaimer') === 'seen';
     });
 
     return (
@@ -19,13 +19,13 @@ function AuthMain() {
                 <Disclaimer
                     onClick={() => {
                         setViewedDisclaimer(true);
-                        localStorage.setItem('netpix-disclaimer', 'seen')
+                        localStorage.setItem('cinesoup-disclaimer', 'seen')
                     }}
                 />
             }
 
             <header>
-                <h1>NETPIX</h1>
+                <h1>CineSoup</h1>
             </header>
 
             <div aria-live='polite' className={styles.srOnly}>

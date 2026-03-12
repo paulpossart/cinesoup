@@ -28,14 +28,14 @@ function TextModal({ modalData, onClose }) {
                     {
                         extraBtn && <button
                             onClick={extraOnClick}
-                            className={styles.redBtn}
+                            className={styles.primaryBtn}
                         >
                             Confirm
                         </button>
                     }
                     <button
                         onClick={onClick}
-                        className={isAccountPath ? styles.blackBtn : styles.redBtn}
+                        className={isAccountPath ? styles.blackBtn : styles.primaryBtn}
                         autoFocus
                     >
                         {extraBtn ? 'Cancel' : 'OK'}

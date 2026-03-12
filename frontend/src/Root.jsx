@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import BigN from "./components/bigN/BigN";
+import BigC from "./components/bigC/BigC";
 import styles from './Root.module.scss';
 
 import { useModal } from "./context/ModalContext";
@@ -15,25 +15,25 @@ function Root() {
     const path = useLocation().pathname;
     const isAccountPath = path.startsWith('/account');
 
-    const [seenBigN, setSeenBigN] = useState(() => {
-        return sessionStorage.getItem('bigN') === 'seen';
+    const [seenBigC, setSeenBigC] = useState(() => {
+        return sessionStorage.getItem('bigC') === 'seen';
     });
 
     useEffect(() => {
-        if (seenBigN) return;
+        if (seenBigC) return;
 
         const intro = setTimeout(() => {
-            setSeenBigN(true);
-            sessionStorage.setItem('bigN', 'seen');
+            setSeenBigC(true);
+            sessionStorage.setItem('bigC', 'seen');
         }, 1900);
 
         return () => {
             clearTimeout(intro);
         }
-    }, [setSeenBigN]);
+    }, [setSeenBigC]);
 
     useEffect(() => {
-        if (seenBigN) {
+        if (seenBigC) {
             const spacerHeight = () => {
                 const header = document.getElementById('header');
                 const spacer = document.getElementById('spacer');
@@ -50,13 +50,13 @@ function Root() {
                 window.removeEventListener('resize', spacerHeight);
             }
         }
-    }, [seenBigN, path]);
+    }, [seenBigC, path]);
 
     return (
         <>
             {
-                !seenBigN
-                    ? <BigN />
+                !seenBigC
+                    ? <BigC />
                     : <div className={styles.Root}>
 
                         {modal.type === 'text' && <TextModal modalData={modal.data} onClose={closeModal} />}

@@ -14,7 +14,7 @@ function Footer() {
             <div className={styles.logoWrapper}>
                 <div>
                     <p>
-                        This a hobby project only, and in no way affiliated with Netflix
+                        This a hobby project only, and not affiliated with any streaming services.
                     </p>
                     <p>
                         This product uses the TMDB API but is not endorsed or certified by TMDB

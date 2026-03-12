@@ -7,7 +7,7 @@ function Account() {
   return (
     <main className={styles.Account}>
       <h1 className={styles.srOnly}>
-        Netpix Account Page
+        CineSoup Account Page
       </h1>
 
       <nav
@@ -21,7 +21,7 @@ function Account() {
                 isActive ? styles.activeLink : styles.inactiveLink}
             >
               <img src={backIcon} alt='' />
-              Back to Netpix
+              Back to CineSoup
             </NavLink>
           </li>
           <li>

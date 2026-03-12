@@ -117,7 +117,7 @@ function Register({ setView }) {
 
                 <button
                     type='submit'
-                    className={styles.redBtn}
+                    className={styles.primaryBtn}
                     style={{ marginTop: '1rem' }}
                 >
                     Become a Member!

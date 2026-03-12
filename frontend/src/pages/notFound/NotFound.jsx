@@ -9,7 +9,7 @@ function NotFound() {
                     to='/'
                     className={`${styles.logo}`}
                 >
-                    NETPIX
+                    CineSoup
                 </Link>
 
                 <h1 className={styles.srOnly}>
@@ -20,7 +20,7 @@ function NotFound() {
             <div>
                 <h2>Lost your way?</h2>
                 <p>Sorry, we can't find that page. You'll find loads to explore on the home page.</p>
-                <Link to='/' className={styles.whiteBtn} replace>Netpix Home</Link>
+                <Link to='/' className={styles.whiteBtn} replace>CineSoup Home</Link>
             </div>
         </main>
     )

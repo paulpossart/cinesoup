@@ -4,8 +4,6 @@
 .overlay {
     position: fixed;
     inset: 0;
-    //zindex?
-    //pointer events?
     background-color: rgba(0, 0, 0, 0.8);
 
     &.accOverlay {
@@ -16,7 +14,6 @@
 
 
 .sidebar {
-    // @include flex(column);
     position: absolute;
     top: 110%;
     right: 0;
@@ -28,7 +25,6 @@
     margin-right: 16px;
     visibility: visible;
     opacity: 1;
-    //zind?
     transition:
         opacity 0.3s ease-in-out,
         visibility 0.3s ease-in-out;
