@@ -1,6 +1,6 @@
 # CineSoup
 
-CineSoup is a full-stack Netflix clone that uses the PERN stack. It allows users to interact with the TMDB API through a RESTful API with secure authentication.
+CineSoup is a film-finding SPA that uses the PERN stack. It allows users to interact with the TMDB API through a RESTful API with secure authentication.
 
 [Visit Site](https://cinesoup.netlify.app/)
 
