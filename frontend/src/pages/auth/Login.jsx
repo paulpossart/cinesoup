@@ -82,13 +82,13 @@ function Login({ setView }) {
 
                 <button
                     type='submit'
-                    className={styles.redBtn}
+                    className={styles.primaryBtn}
                     style={{ marginTop: '1rem' }}
                 >
                     Sign In
                 </button>
 
-                <p>New to Netpix?
+                <p>New to CineSoup?
                     <button
                         type='button'
                         className={styles.authTextBtn}

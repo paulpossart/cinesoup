@@ -1,11 +1,5 @@
 import { apiJsonFetch } from '../utils/helpers';
 
-/*export const callSearchTmdb = async (query) => {
-    const data =  await apiJsonFetch(`/api/tmdb/search/${query}`, 'GET');
-    console.log('data:', data)
-    return data
-};*/
-
 export const callSearchTmdb = query => apiJsonFetch(`/api/tmdb/search/${query}`, 'GET');
 export const callFetchVideosById = id => apiJsonFetch(`/api/tmdb/videos/${id}`, 'GET');
 export const callFetchPopular = () => apiJsonFetch('/api/tmdb/popular', 'GET');

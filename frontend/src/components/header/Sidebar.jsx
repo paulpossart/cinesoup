@@ -69,7 +69,7 @@ function Sidebar({ sidebar, setSidebar }) {
                 }>
                     {
                         isAccountPath
-                            ? <Link to='/'>Back to Netpix</Link>
+                            ? <Link to='/'>Back to CineSoup</Link>
                             : <Link to='/account'>Account</Link>
                     }
                 </div>

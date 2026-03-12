@@ -1,16 +1,16 @@
 BEGIN;
 
-CREATE SCHEMA netpix;
+CREATE SCHEMA cinesoup;
 
-CREATE TABLE netpix.session (
+CREATE TABLE cinesoup.session (
   sid text PRIMARY KEY,
   sess json NOT NULL,
   expire timestamp(6) NOT NULL
 );
 
-CREATE INDEX "IDX_session_expire" ON netpix.session (expire);
+CREATE INDEX "IDX_session_expire" ON cinesoup.session (expire);
 
-CREATE TABLE netpix.users(
+CREATE TABLE cinesoup.users(
     id UUID PRIMARY KEY,
     username VARCHAR(30) UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
@@ -18,11 +18,11 @@ CREATE TABLE netpix.users(
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX users_username_idx ON netpix.users (username);
+CREATE INDEX users_username_idx ON cinesoup.users (username);
 
-CREATE TABLE netpix.movies (
+CREATE TABLE cinesoup.movies (
     id SERIAL PRIMARY KEY,
-    user_id UUID NOT NULL REFERENCES netpix.users(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES cinesoup.users(id) ON DELETE CASCADE,
     movie_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -30,48 +30,48 @@ CREATE TABLE netpix.movies (
 
 -- Table limits
 -- session
-CREATE OR REPLACE FUNCTION prevent_excess_netpix_sessions()
+CREATE OR REPLACE FUNCTION prevent_excess_cinesoup_sessions()
 RETURNS trigger AS $$
 BEGIN
-    IF (SELECT COUNT(*) FROM netpix.session) >= 5000 THEN
+    IF (SELECT COUNT(*) FROM cinesoup.session) >= 5000 THEN
         RAISE EXCEPTION 'Session limit reached — cannot create new.';
     END IF;
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER netpix_session_limit_trigger
-BEFORE INSERT ON netpix.session
-FOR EACH ROW EXECUTE FUNCTION prevent_excess_netpix_sessions();
+CREATE TRIGGER cinesoup_session_limit_trigger
+BEFORE INSERT ON cinesoup.session
+FOR EACH ROW EXECUTE FUNCTION prevent_excess_cinesoup_sessions();
 
 -- users
-CREATE OR REPLACE FUNCTION prevent_excess_netpix_users()
+CREATE OR REPLACE FUNCTION prevent_excess_cinesoup_users()
 RETURNS trigger AS $$
 BEGIN
-    IF (SELECT COUNT(*) FROM netpix.users) >= 1000 THEN
+    IF (SELECT COUNT(*) FROM cinesoup.users) >= 1000 THEN
         RAISE EXCEPTION 'User limit reached — cannot create new users.';
     END IF;
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER netpix_users_limit_trigger
-BEFORE INSERT ON netpix.users
-FOR EACH ROW EXECUTE FUNCTION prevent_excess_netpix_users();
+CREATE TRIGGER cinesoup_users_limit_trigger
+BEFORE INSERT ON cinesoup.users
+FOR EACH ROW EXECUTE FUNCTION prevent_excess_cinesoup_users();
 
 -- movies
-CREATE OR REPLACE FUNCTION prevent_excess_netpix_movies()
+CREATE OR REPLACE FUNCTION prevent_excess_cinesoup_movies()
 RETURNS trigger AS $$
 BEGIN
-    IF (SELECT COUNT(*) FROM netpix.movies) >= 10000 THEN
+    IF (SELECT COUNT(*) FROM cinesoup.movies) >= 10000 THEN
         RAISE EXCEPTION 'Movie storage limit reached.';
     END IF;
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER netpix_movies_limit_trigger
-BEFORE INSERT ON netpix.movies
-FOR EACH ROW EXECUTE FUNCTION prevent_excess_netpix_movies();
+CREATE TRIGGER cinesoup_movies_limit_trigger
+BEFORE INSERT ON cinesoup.movies
+FOR EACH ROW EXECUTE FUNCTION prevent_excess_cinesoup_movies();
 
 COMMIT;

@@ -5,7 +5,7 @@ import { httpErr } from '../utils/helpers.js';
 
 export const getUserByUsername = async (username) => {
     const result = await pool.query(
-        `SELECT * FROM netpix.users
+        `SELECT * FROM cinesoup.users
          WHERE username = $1`,
         [username]
     );
@@ -15,7 +15,7 @@ export const getUserByUsername = async (username) => {
 
 export const getUserById = async (id) => {
     const result = await pool.query(
-        `SELECT * FROM netpix.users
+        `SELECT * FROM cinesoup.users
          WHERE id = $1`,
         [id]
     );
@@ -37,7 +37,7 @@ export const createUser = async (username, password) => {
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
     const result = await pool.query(
-        `INSERT INTO netpix.users (id, username, password_hash)
+        `INSERT INTO cinesoup.users (id, username, password_hash)
          VALUES ($1, $2, $3)
          RETURNING *`,
         [id, username, passwordHash]
@@ -67,7 +67,7 @@ export const replacePassword = async (
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
 
     const result = await pool.query(
-        `UPDATE netpix.users
+        `UPDATE cinesoup.users
          SET password_hash = $1, 
             updated_at = CURRENT_TIMESTAMP
          WHERE id = $2`,
@@ -88,7 +88,7 @@ export const replaceUsername = async (id, newUsername) => {
     }
 
     const result = await pool.query(
-        `UPDATE netpix.users
+        `UPDATE cinesoup.users
          SET username = $1, 
             updated_at = CURRENT_TIMESTAMP
          WHERE id = $2
@@ -101,7 +101,7 @@ export const replaceUsername = async (id, newUsername) => {
 
 export const removeUser = async (id) => {
     const result = await pool.query(
-        `DELETE FROM netpix.users
+        `DELETE FROM cinesoup.users
          WHERE id = $1
          RETURNING username, updated_at`,
         [id]

@@ -22,7 +22,7 @@ function Home() {
   return (
     <main>
       <h1 className={styles.srOnly}>
-        Netpix Home Page
+        CineSoup Home Page
       </h1>
 
       <div aria-live='polite' className={styles.srOnly}>

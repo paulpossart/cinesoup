@@ -10,7 +10,7 @@ const sessionSecret = process.env.SESSION_SECRET;
 const sessionStore = new pgSession({
     pool: pool,
     tableName: 'session',
-    schemaName: 'netpix',
+    schemaName: 'cinesoup',
     pruneSessionInterval: 60 * 60,
 });
 
