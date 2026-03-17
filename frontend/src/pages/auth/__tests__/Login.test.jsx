@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { server } from '../../../test/server';
 import { http, HttpResponse } from 'msw';
+import { MemoryRouter } from 'react-router-dom';
 import { AuthProvider } from '../../../context/AuthContext';
 import Login from '../Login';
 import { useAuth } from '../../../context/AuthContext';
@@ -17,10 +18,12 @@ function TestHomePage() {
 
 const renderDOM = () => {
     render(
-        <AuthProvider>
-            <Login setView={vi.fn()} />
-            <TestHomePage />
-        </AuthProvider>
+        <MemoryRouter>
+            <AuthProvider>
+                <Login setView={vi.fn()} />
+                <TestHomePage />
+            </AuthProvider>
+        </MemoryRouter>
     );
 }
 
@@ -28,7 +31,7 @@ describe('Login', () => {
 
     it('provides a user object on sign in', async () => {
         server.use(
-            http.get('/api/auth/authenticate-user', () => {
+            http.get('/api/users/authenticate-user', () => {
                 return HttpResponse.json(
                     {
                         message: 'Not authenticated.',

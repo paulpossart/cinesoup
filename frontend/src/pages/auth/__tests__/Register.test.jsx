@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { server } from '../../../test/server';
 import { http, HttpResponse } from 'msw';
+import { MemoryRouter } from 'react-router-dom';
 import { AuthProvider } from '../../../context/AuthContext';
 import Register from '../Register';
 import { useAuth } from '../../../context/AuthContext';
@@ -17,17 +18,19 @@ function TestHomePage() {
 
 const renderDOM = () => {
     render(
-        <AuthProvider>
-            <Register setView={vi.fn()} />
-            <TestHomePage />
-        </AuthProvider>
+        <MemoryRouter>
+            <AuthProvider>
+                <Register setView={vi.fn()} />
+                <TestHomePage />
+            </AuthProvider>
+        </MemoryRouter>
     );
 }
 
 describe('Register', () => {
     it('provides a user object on registration', async () => {
         server.use(
-            http.get('/api/auth/authenticate-user', () => {
+            http.get('/api/users/register-user', () => {
                 return HttpResponse.json(
                     {
                         message: 'Not authenticated.',
@@ -71,7 +74,7 @@ describe('Register', () => {
 
     it('shows submitErr on bad submission', async () => {
         server.use(
-            http.post('/api/auth/register-user', () => {
+            http.post('/api/users/register-user', () => {
                 return HttpResponse.json(
                     { message: 'Invalid username or password' },
                     { status: 401 }
